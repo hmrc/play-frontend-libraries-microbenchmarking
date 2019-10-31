@@ -23,6 +23,7 @@ import org.openjdk.jmh.runner.Runner
 import org.openjdk.jmh.runner.options.CommandLineOptions
 
 object CustomRunnerApp {
+
   import scala.collection.JavaConversions._
 
   def main(args: Array[String]): Unit = {

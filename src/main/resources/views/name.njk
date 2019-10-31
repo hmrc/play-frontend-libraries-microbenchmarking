@@ -1,0 +1,16 @@
+{%- set assetPath = "/assets/node_modules/govuk-frontend/govuk/assets" -%}
+
+{% from "govuk/components/input/macro.njk"            import govukInput %}
+{% from "govuk/components/button/macro.njk"           import govukButton %}
+
+{{ govukInput({
+  label: {
+    text: 'name.heading'
+  },
+  id: 'value',
+  name: 'value'
+}) }}
+
+{{ govukButton({
+  text: 'site.continue'
+}) }}

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.microbenchmarking.twirl
+package uk.gov.hmrc.microbenchmarking.helper
 
 import org.openjdk.jmh.annotations.{Scope, State}
 import org.scalatestplus.play.PlaySpec
-import org.scalatestplus.play.guice._
+import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.i18n.{Messages, MessagesApi}
 import play.api.inject.Injector
 import play.api.inject.guice.GuiceApplicationBuilder
@@ -30,7 +30,7 @@ object PlayHelper extends PlaySpec with GuiceOneAppPerSuite {
 
   def messagesApi: MessagesApi = injector.instanceOf[MessagesApi]
 
-  def fakeRequest = FakeRequest("", "")
+  implicit def fakeRequest = FakeRequest("", "")
 
   implicit def messages: Messages = messagesApi.preferred(fakeRequest)
 
@@ -45,4 +45,5 @@ object PlayHelper extends PlaySpec with GuiceOneAppPerSuite {
   class ThreadState {
     var inject = applicationBuilder.build().injector
   }
+
 }

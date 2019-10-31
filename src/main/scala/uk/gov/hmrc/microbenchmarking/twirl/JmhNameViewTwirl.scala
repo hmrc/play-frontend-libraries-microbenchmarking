@@ -17,10 +17,10 @@
 package uk.gov.hmrc.microbenchmarking.twirl
 
 import org.openjdk.jmh.annotations.Benchmark
-import uk.gov.hmrc.microbenchmarking.twirl.PlayHelper._
+import uk.gov.hmrc.microbenchmarking.helper.PlayHelper._
 import views.html._
 
-class JmhNameView {
+class JmhNameViewTwirl {
 
   @Benchmark
   def renderPage(state: BenchmarkState): Unit = {
