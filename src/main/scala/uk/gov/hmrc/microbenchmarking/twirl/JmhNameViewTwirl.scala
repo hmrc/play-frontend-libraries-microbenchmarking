@@ -17,13 +17,14 @@
 package uk.gov.hmrc.microbenchmarking.twirl
 
 import org.openjdk.jmh.annotations.Benchmark
+import play.twirl.api.HtmlFormat
 import uk.gov.hmrc.microbenchmarking.helper.PlayHelper._
 import views.html._
 
 class JmhNameViewTwirl {
 
   @Benchmark
-  def renderPage(state: BenchmarkState): Unit = {
+  def renderPage(state: BenchmarkState): HtmlFormat.Appendable = {
 
     state.inject.instanceOf[NameViewStrippedDown].render()
 
