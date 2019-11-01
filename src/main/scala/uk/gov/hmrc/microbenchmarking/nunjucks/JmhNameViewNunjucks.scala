@@ -19,6 +19,7 @@ package uk.gov.hmrc.microbenchmarking.nunjucks
 import java.util.concurrent.TimeUnit
 
 import org.openjdk.jmh.annotations.Benchmark
+import play.api.libs.json.Json
 import play.twirl.api.Html
 import uk.gov.hmrc.microbenchmarking.helper.PlayHelper._
 import uk.gov.hmrc.nunjucks.NunjucksRenderer
@@ -31,7 +32,10 @@ class JmhNameViewNunjucks {
   @Benchmark
   def renderPage(state: BenchmarkState): Html = {
 
-    Await.result(state.inject.instanceOf[NunjucksRenderer].render("name.njk"), Duration(1, TimeUnit.SECONDS))
+    Await.result(state.inject.instanceOf[NunjucksRenderer].render("name.njk", Json.obj(
+      "labelContent" -> "labelContent",
+      "buttonContent" -> "buttonContent"
+    )), Duration(10, TimeUnit.SECONDS))
   }
 
 }

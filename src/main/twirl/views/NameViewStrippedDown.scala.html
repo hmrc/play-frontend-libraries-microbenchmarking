@@ -19,9 +19,9 @@
         button: GovukButton
 )
 
-@()
+@(labelContent: String, buttonContent: String)
 
 @input(Input(id = "value", name = "value",
-    label = Label(isPageHeading = true, classes = "govuk-label--l", content = Text("name.heading"))))
+    label = Label(isPageHeading = true, classes = "govuk-label--l", content = Text(labelContent))))
 
-@button(Button(content = Text("site.continue")))
+@button(Button(content = Text(buttonContent)))

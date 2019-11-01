@@ -26,7 +26,7 @@ class JmhNameViewTwirl {
   @Benchmark
   def renderPage(state: BenchmarkState): HtmlFormat.Appendable = {
 
-    state.inject.instanceOf[NameViewStrippedDown].render()
+    state.inject.instanceOf[NameViewStrippedDown].render("labelContent", "buttonContent")
 
     //        val view = state.inject.instanceOf[NameViewStrippedDown]
     //        println(s"HTML:${view.render()}")
